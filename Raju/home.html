@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PMDb</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+	.mySlides {display:none;}
+	</style>
+</head>
+<body>
+		<div>
+			<ul id="navbar">
+	  			<li><a href="default.asp">PMDb</a></li>
+			  	<li><a href="news.asp">Search</a></li>
+			  	<li><a href="contact.asp">Profile</a></li>
+			 	<li><a href="about.asp">Logout</a></li>
+			</ul>
+		</div>
+		<div>
+				<img class="mySlides" src="a.jpg" width="100%" height="600px">
+				<img class="mySlides" src="b.jpg" width="100%" height="600px">
+				<img class="mySlides" src="c.jpg" width="100%" height="600px">
+				<img class="mySlides" src="d.jpg" width="100%" height="600px">
+		</div>
+
+	<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+</body>
+</html>
