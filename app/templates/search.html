@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PMDb</title>
-	
-	<style>
+	<title>Search Menu</title>
+	<style type="text/css">
+
+
 
   .footer-distributed{
   background-color: #292c2f;
@@ -174,7 +175,8 @@
 
 }
 
-	#navbar {
+
+			#navbar {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -198,12 +200,7 @@
 	    background-color: green;
 	}
 
-	.mySlides {display:none;}
-
-
-
-
-	table{
+table{
   width:100%;
   table-layout: fixed;
 }
@@ -216,7 +213,7 @@
   margin-top: 0px;
   border: 1px solid rgba(255,255,255,0.3);
 }
-th{
+.tbl-header th{
   padding: 20px 15px;
   text-align: center;
   font-weight: 500;
@@ -224,7 +221,7 @@ th{
   color: #006400;
   text-transform: uppercase;
 }
-td{
+.tbl-content td{
   padding: 15px;
   text-align: center;
   vertical-align:middle;
@@ -234,13 +231,12 @@ td{
   border-bottom: solid 1px rgba(255,255,255,0.1);
 }
 
-a{
+.tbl-content a{
 	font-size: 18px;
 	text-decoration: none;
 	color: #006400;
 
 }
-
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body{
@@ -264,33 +260,28 @@ section{
 }
 
 
-
-
-
 	</style>
 </head>
 <body>
-		<div>
-			<ul id="navbar">
-	  			<li><a href="home">PMDb</a></li>
-			  	<li><a href="search">Search Movies</a></li>
-			  	<li><a href="profile">View Profile</a></li>
-			 	<li><a href="logout">Logout</a></li>
-			</ul>
-		</div>
-		<br>
-		<center>
-		<div>
-				<img class="mySlides" src="https://i.pinimg.com/originals/63/d3/fc/63d3fccaf44a73d9a39f447760cdbeca.jpg" width="100%" height="550px" alt="Img1">
-				<img class="mySlides" src="https://i.pinimg.com/originals/57/e8/13/57e81377c084df22c8e500d5d967f2e5.jpg" width="100%" height="550px" alt="Img2">
-				<img class="mySlides" src="https://www.legendary.com/wp-content/uploads/2016/04/WC_unite_poster_800x400.jpg" width="100%" height="550px" alt="Img3">
-				<img class="mySlides" src="http://www.insidethemagic.net/wp-content/uploads/2016/02/zoo_poster_bridgeofspies-1-800x400.jpg" width="100%" height="550px" alt="Img4">
-		</div>
+	<div>
+		<ul id="navbar">
+  			<li><a href="home">PMDb</a></li>
+		  	<li><a href="search">Search Movies</a></li>
+		  	<li><a href="profile">View Profile</a></li>
+		 	<li><a href="/">Logout</a></li>
+		</ul>
+		<br><br>
+	</div>
+	<h1 style="text-align: center">Search Your Movie</h1><br><br><br>
+	<center><form method="post">
+    {{searchform.name.label}} {{searchform.name}}
+    {{searchform.year.label}} {{searchform.year}}
+		<input type="submit" name="submit">
+    
+	</form>
 	</center>
-
-
-  <section>
-  <div class="tbl-header">
+	<div class="tbl-header">
+	<center><h3>Results</h3></center>
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
         <tr>
@@ -303,11 +294,11 @@ section{
       </thead>
     </table>
   </div>
-  <div class="tbl-content">
+	<div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
-
-      	{% for row in rows %}
+        
+      {% for row in rows %}
       	
         <tr>
           <td><img src="{{row[11]}}" height="250px" width="180px" alt="IMG"/></td>
@@ -322,15 +313,7 @@ section{
       </tbody>
     </table>
   </div>
-</section>
-
-
-
-
-
-
-
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 
 <head>
@@ -364,7 +347,6 @@ section{
 
       <div class="footer-left">
 
-        <img src="C:\Users\hp\Downloads\freebie-footer-templates\logo.png" align="left" height="auto">
 
         <p class="footer-links">
           <a href="#">Home</a>
@@ -424,41 +406,6 @@ section{
   </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-	<script>
-var myIndex = 0;
-carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 2000); // Change image every 2 seconds
-}
-
-
-
-</script>
-
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-      
 
 </body>
 </html>
